@@ -1,18 +1,39 @@
-# VINIT_23BIT089 — 8-Bit Magnitude Comparator Project
+# 8-Bit Magnitude Comparator — RTL to GDSII ASIC Project
 
-## RTL to GDSII Flow Submission
-
--   Author: Vinit Kumar Gupta
--   Roll No: 23BIT089
--   Workshop: 5-Day RTL to GDSII Workshop
--   Project Title: RTL to GDSII Implementation of an 8-bit Magnitude Comparator
--   Toolchain: Synopsys DC / IC Compiler II / PrimeTime / Verdi
+> Author: Vinit Kumar Gupta | Roll No: 23BIT089<br>
+> Workshop Project — RTL to GDSII Flow | Pandit Deendayal Energy University<br>
+> Tech Stack: Verilog · Synopsys Toolchain · Full Digital ASIC Flow
 
 ---
 
-## 📁 Folder Structure
+## Overview
 
-All project files are organized as follows:
+This project showcases the complete RTL-to-GDSII implementation of a sequential 8-bit magnitude comparator using the Synopsys ASIC toolchain and SAED 32nm standard cell library. It was developed as part of a 5-day hands-on VLSI workshop, culminating in the successful generation of a synthesized netlist, physical layout, and post-layout timing closure using industry-grade tools.
+
+### About 8-bit Magnitude Comparator
+
+An 8-bit magnitude comparator is a digital logic circuit that compares two 8-bit binary inputs (A and B) and determines their relationship:
+
+* `A > B` → Output a\_gt\_b = 1
+* `A < B` → Output a\_lt\_b = 1
+* `A == B` → Output a\_eq\_b = 1
+
+The design is synchronous, clock-driven, and modeled in Verilog HDL.
+
+---
+
+## Project Highlights
+
+- Fully functional sequential RTL design of an 8-bit comparator
+- Behavioral simulation using VCS + waveform debugging via Verdi
+- Logic synthesis using Design Compiler with SAED32nm standard cells
+- Custom SDC constraints and gate-level optimization (compile\_ultra)
+- Physical design using IC Compiler II: floorplanning → routing
+- Post-layout STA with PrimeTime; timing met with slack = 0.58 ns
+
+---
+
+## 🧱 Folder Structure
 
 ```
 VINIT_23BIT089_8BIT_COMPARATOR/
@@ -37,21 +58,16 @@ VINIT_23BIT089_8BIT_COMPARATOR/
 
 ---
 
-## 🔧 Tools Used
+## Toolchain Used
 
--   VCS & Verdi – for RTL Simulation and Debugging
--   Design Compiler (DC) – for Logic Synthesis
--   IC Compiler II (ICC-II) – for Floorplan, Powerplan, Placement, Clock and Routing
--   PrimeTime (PT) – for Static Timing Analysis
-
----
-
-## 📌 Key Notes
-
--   All scripts are configured with proper relative paths for reproducibility.
--   Slack achieved at the end of routing: `0.58 ns` (positive and < 1.0 ns as required)
--   Detailed screenshots and reports are provided in the PDF document.
+| Tool                         | Purpose                                    |
+| ---------------------------- | ------------------------------------------ |
+| VCS + Verdi                  | Functional RTL simulation & waveform debug |
+| Design Compiler (dc\_shell)  | RTL → Gate-Level Synthesis                 |
+| IC Compiler II (icc2\_shell) | Floorplan, Placement, CTS, Routing         |
+| PrimeTime                    | Post-layout Static Timing Analysis         |
+| SAED32RVT 0.78V 40°C         | Standard Cell Library                      |
 
 ---
 
-> 💡 For any questions or tool-specific paths, refer to comments within each script.
+📎 Complete Report: [VINIT\_23BIT089\_REPORT.pdf](./VINIT_23BIT089_REPORT.pdf)
